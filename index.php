@@ -8,6 +8,5 @@
 </head>
 <body>
     <?php include("includes/nav.php"); ?>
-    <p>Hallo, Wereld!</p>
 </body>
 </html>

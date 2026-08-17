@@ -1,9 +1,7 @@
-<nav>
-<li>
-    <ul><a href="index.php">Home</a></ul>
-    <ul><a href="rooms.php">Kamers</ul>
-    <ul><a href="restaurant.php">Restaurant</ul>
-    <ul><a href="about.php">Over Ons</ul>
-    <ul><a href="contact.php">Contact</ul>
-</li>
+<nav class="navbar">
+<a href="index.php">Home</a>
+<a href="rooms.php">Kamers</a>
+<a href="restaurant.php">Restaurant</a>
+<a href="about.php">Over Ons</a>
+<a href="contact.php">Contact</a>
 </nav>
