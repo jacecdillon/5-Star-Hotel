@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    
-    
+    <?php include("includes/nav.php"); ?>
 </body>
 </html>
