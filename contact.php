@@ -10,6 +10,7 @@
     <?php include("includes/nav.php"); ?>
     <form>
         <input type="text" placeholder="Naam">
+        <input type="submit" placeholder="Verstuur">
     </form>
 </body>
 </html>
