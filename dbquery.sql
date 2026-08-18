@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS DeZonneVallei;
+CREATE DATABASE DeZonneVallei;
+USE DeZonneVallei;
