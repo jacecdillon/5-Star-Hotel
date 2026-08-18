@@ -37,5 +37,6 @@
             <input type="submit" value="Submit" class="submit">
         </form>
     </main>
+    <?php include("includes/footer.php"); ?>
 </body>
 </html>

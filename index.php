@@ -8,5 +8,12 @@
 </head>
 <body>
     <?php include("includes/nav.php"); ?>
+    <main>
+        <div class="home">
+            <h1>Welkom bij De Zonne Vallei</h1>
+            <p>Ontdek de perfecte balans tussen luxe en comfort in ons hotel. Geniet van een onvergetelijk verblijf met eersteklas faciliteiten en uitzonderlijke service. Of u nu hier bent voor zaken of ontspanning, wij zorgen ervoor dat uw ervaring bij De Zonne Vallei buitengewoon is.</p>
+        </div>
+    </main>
+    <?php include("includes/footer.php"); ?>
 </body>
 </html>

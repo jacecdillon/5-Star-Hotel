@@ -15,6 +15,10 @@ body {
     top: 0;
 }
 
+.navbar a:hover {
+    color: peachpuff;
+}
+
 .contactpage   {
     display: flex;
     max-width: 100%;
@@ -66,4 +70,12 @@ a {
 .contactpage {
     display: flex;
     align-items: center;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
