@@ -1,6 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
 .navbar {
     display: flex;
@@ -8,11 +9,48 @@ body {
     justify-content: space-evenly;
     padding: 2%;
     background-color: purple;
+    position: sticky;
+    top: 0;
 }
 
 .contactpage   {
     display: flex;
-    flex-direction: column;
     max-width: 100%;
-    align-items: center;
+    align-items: stretch;
+    align-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+textarea {
+    width: 25%;
+    height: 75px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+a {
+    text-decoration: none;
+    color: #b5925c;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 25%;
+    margin-top: 3%;
+}
+
+.name p {
+    
+}
+
+.email {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 25%;
+    margin-top: 3%;
 }
