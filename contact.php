@@ -11,22 +11,30 @@
     <main>
         <form class="contactpage">
 
-            <div class=name>
-            <p>Naam</p>
-            <input type="text" placeholder="Naam"> 
-            <p>Achternaam</p>
-            <input type="text" placeholder="Achternaam">
+            <div class="name">
+                <div>
+                    <p>Naam</p>
+                    <input type="text" placeholder="Naam..."> 
+                </div>
+                <div>
+                    <p>Achternaam</p>
+                    <input type="text" placeholder="Achternaam...">
+                </div>
             </div>
 
-            <div class=email>
-            <p>Email</p>
-            <input type="email" placeholder="Email">
-            <p>Onderwerp</p>
-            <input type="text" placeholder="Subject">
+            <div class="email">
+                <div>
+                    <p>Email</p>
+                    <input type="email" placeholder="Email...">
+                </div>
+                <div>
+                    <p>Onderwerp</p>
+                    <input type="text" placeholder="Onderwerp...">
+                </div>
             </div>
-            <br>
-            <textarea></textarea>
-            <input type="submit" placeholder="Submit">
+            <p>Bericht</p>
+            <textarea placeholder="Bericht..."></textarea>
+            <input type="submit" value="Submit" class="submit">
         </form>
     </main>
 </body>

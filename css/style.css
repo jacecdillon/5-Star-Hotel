@@ -2,13 +2,15 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
+    background-color: #B5925C;
+    font-family: 'Franklin Gothic Medium', Arial Narrow, Arial, sans-serif;
 }
 .navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 2%;
-    background-color: purple;
+    padding: 1.5%;
+    background-color: #FFFFFF;
     position: sticky;
     top: 0;
 }
@@ -35,22 +37,33 @@ a {
     color: #b5925c;
 }
 
-.name {
+.name, .email {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: 25%;
+    align-items: center;
+    gap: 10px;
+    width: 27%;
+    border: none;
     margin-top: 3%;
 }
 
-.name p {
-    
+.submit {
+    width: 10%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.email {
+.logo {
+    width: 13%;
+    position: absolute;
+    left: 0%;
+    top: 1%;
+    height: auto;
+}
+
+.contactpage {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 25%;
-    margin-top: 3%;
+    align-items: center;
 }
