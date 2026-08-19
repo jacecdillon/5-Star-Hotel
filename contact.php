@@ -9,6 +9,15 @@
 </head>
 <body>
     <main>
+
+<div>
+    <div class="contact">
+        <h2>info@mysite.com</h2>
+        <h2>Straatnaam 123, 1234 AB Stad</h2>
+        <h2>Tel: 06-12345678</h2>
+    </div>
+</div>
+
         <form class="contactpage">
 
             <div class="name">

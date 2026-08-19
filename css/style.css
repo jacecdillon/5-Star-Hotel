@@ -49,6 +49,7 @@ a {
     width: 27%;
     border: none;
     margin-top: 3%;
+    justify-content: center;
 }
 
 .submit {
@@ -78,4 +79,19 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    gap: 60px;
+}
+
+.contact h2 {
+    font-size: 20px;
+    font-weight: normal;
 }
