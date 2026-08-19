@@ -11,14 +11,21 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     padding: 2%;
-    background-color: #FFFFFF;
+    background-color: peachpuff;
     position: sticky;
     top: 0;
     border-bottom: solid 1px black;
 }
 
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
 .navbar a:hover {
-    color: peachpuff;
+    color: #FFFFFF;
 }
 
 .logo {
@@ -86,7 +93,7 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2%;
+    padding: 5%;
     background-color: beige;
     border: solid 1px black;
     border-radius: 5px;
@@ -149,17 +156,28 @@ a {
     margin-bottom: 2%;
 }
 
+.main-contact {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2%;
+    height: 100%;
+    padding-bottom: 7vh;
+}
+
 .contact h2 {
     font-size: 20px;
     font-weight: normal;
 }
 
 footer {
-    text-align: center;
-    padding: 10px;
-    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5%;
     border-top: solid 1px black;
-    background-color: #FFFFFF;
+    background-color: peachpuff;
     bottom: 0;
-    width: 100%;
 }

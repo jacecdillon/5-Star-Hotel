@@ -8,7 +8,8 @@
     <?php include("includes/nav.php"); ?>
 </head>
 <body>
-    <main class="main-contact">
+
+<main class="main-contact">
 
 <div class="contactinfo">
     <div class="contact">
