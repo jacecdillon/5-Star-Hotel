@@ -2,38 +2,51 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
-    background-color: #B5925C;
-    font-family: 'Franklin Gothic Medium', Arial Narrow, Arial, sans-serif;
+    background-image: url("../img/home-background.jpg");
+    font-family: 'Comic Neue', Arial Narrow, Arial, sans-serif;
     min-height: 100vh;
+    overflow: hidden;
 }
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    padding: 2%;
-    background-color: peachpuff;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4%;
+    background-color: white;
+    height: 70px;
     position: sticky;
     top: 0;
     border-bottom: solid 1px black;
+    z-index: 1000;
+    font-size: 18px;
 }
 
 .nav-links {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    width: 90%;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    width: 100%;
 }
 
 .navbar a:hover {
-    color: #FFFFFF;
+    color: #B5925C;
 }
 
 .logo {
-    width: 13%;
-    position: absolute;
-    left: 0%;
-    top: 1%;
-    height: auto;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo img, 
+.nav-img img {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
 }
 
 .main-about {
@@ -53,8 +66,9 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2%;
-    background-color: #F9F58B;
-    border: solid 1px black;
+    background-color: #FFFFFF;
+    border: solid 1px darkcyan;
+    box-shadow: inset 0 0 3px darkcyan;
     border-radius: 5px;
     width: 100%;
     max-width: 800px;
@@ -66,7 +80,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2%;
-    background-color: #F9F58B;
 }
 
 .contactpage   {
@@ -75,7 +88,6 @@ body {
     align-items: stretch;
     align-content: space-around;
     flex-wrap: wrap;
-    flex-direction: column;
 }
 
 textarea {
@@ -94,16 +106,26 @@ textarea {
     align-items: center;
     justify-content: center;
     padding: 5%;
-    background-color: beige;
-    border: solid 1px black;
+    background-color: white;
+    border: solid 0.5px darkcyan;
+    box-shadow: inset 0 0 3px darkcyan;
     border-radius: 5px;
     font-weight: bold;
 
 }
 
-a {
+.navbar a {
     text-decoration: none;
-    color: #b5925c;
+    color: #50404d;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    color: #B5925C;
 }
 
 .name, .email {
@@ -111,7 +133,6 @@ a {
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    width: 27%;
     font-weight: bold;
     padding-bottom: 1%;
     margin-top: 3%;
@@ -137,7 +158,7 @@ a {
     justify-content: center;
     text-align: center;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 0.5%;
     gap: 60px;
 }
 
@@ -149,16 +170,16 @@ a {
     text-align: center;
     margin-top: 50px;
     gap: 8%;
-    border: solid 1px black;
+    border: solid 1px darkcyan;
     border-radius: 5px;
-    background-color: beige; 
+    background-color: white; 
+    box-shadow: inset 0 0 3px darkcyan;
     width: 50%;
-    margin-bottom: 2%;
 }
 
 .main-contact {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     flex: 1;
     align-items: center;
     justify-content: flex-start;
@@ -178,6 +199,25 @@ footer {
     justify-content: center;
     padding: 0.5%;
     border-top: solid 1px black;
-    background-color: peachpuff;
+    background-color: #50404d;
     bottom: 0;
+    color: white;
+}
+
+footer h5 {
+    color: gray;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    height: 100%;
+    padding-bottom: 10vh;
+    border: solid 1px darkcyan;
+    border-radius: 5px;
+    box-shadow: inset 0 0 3px darkcyan;
+    background-color: #FFFFFF;
 }
