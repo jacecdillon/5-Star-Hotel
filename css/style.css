@@ -4,6 +4,7 @@ body {
     margin: auto;
     background-color: #B5925C;
     font-family: 'Franklin Gothic Medium', Arial Narrow, Arial, sans-serif;
+    min-height: 100vh;
 }
 .navbar {
     display: flex;
@@ -18,6 +19,47 @@ body {
 
 .navbar a:hover {
     color: peachpuff;
+}
+
+.logo {
+    width: 13%;
+    position: absolute;
+    left: 0%;
+    top: 1%;
+    height: auto;
+}
+
+.main-about {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    height: 100%;
+    padding-bottom: 10vh;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    background-color: #F9F58B;
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    background-color: #F9F58B;
 }
 
 .contactpage   {
@@ -49,6 +91,7 @@ textarea {
     border: solid 1px black;
     border-radius: 5px;
     font-weight: bold;
+
 }
 
 a {
@@ -75,25 +118,9 @@ a {
     cursor: pointer;
 }
 
-.logo {
-    width: 13%;
-    position: absolute;
-    left: 0%;
-    top: 1%;
-    height: auto;
-}
-
 .contactpage {
     display: flex;
     align-items: center;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 .contactinfo {
@@ -125,4 +152,14 @@ footer {
 .contact h2 {
     font-size: 20px;
     font-weight: normal;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    border-top: solid 1px black;
+    background-color: #FFFFFF;
+    bottom: 0;
+    width: 100%;
 }

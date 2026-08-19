@@ -8,7 +8,7 @@
     <?php include("includes/nav.php"); ?>
 </head>
 <body>
-    <main>
+    <main class="main-contact">
 
 <div class="contactinfo">
     <div class="contact">
@@ -17,7 +17,6 @@
         <h2>Tel: 06-12345678</h2>
     </div>
 </div>
-
         <form class="contactpage" action="contact.php" method="post">
             <div class="contactform">
                 <h2>Contactformulier</h2>

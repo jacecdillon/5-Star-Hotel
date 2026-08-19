@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Restaurant</title>
+    <?php include("includes/nav.php"); ?>
 </head>
 <body>
-    <?php include("includes/nav.php"); ?>
     <main>
         <div class="restaurant">
             <h1>Restaurant</h1>
