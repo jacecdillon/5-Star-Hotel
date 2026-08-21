@@ -2,15 +2,15 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
-    background-image: url("../img/home-background.jpg");
+    background-image: url("../img/achtergrond.jpg");
+    background-size: cover;
     font-family: 'Comic Neue', Arial Narrow, Arial, sans-serif;
-    min-height: 100vh;
-    overflow: hidden;
+    min-height: 145vh;
 }
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0 4%;
     background-color: white;
@@ -22,6 +22,18 @@ body {
     font-size: 18px;
 }
 
+.boekknop {
+    background-color: #B5925C;
+    border-radius: 5px;
+    padding: 10px;
+    color: white !important;
+    transition: background-color 0.3s ease;
+}
+
+.boekknop:hover {
+    background-color: #967543;
+    color: white;
+}
 .nav-links {
     display: flex;
     flex-direction: row;
@@ -30,6 +42,11 @@ body {
     gap: 30px;
     max-width: 1000px;
     width: 100%;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #50404d;
 }
 
 .navbar a:hover {
@@ -114,14 +131,53 @@ textarea {
 
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #50404d;
+footer {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5%;
+    align-items: center;
+    border-top: solid 1px black;
+    background-color: #50404d;
+    bottom: 0;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    gap: 120px;
+    margin: auto;
+}
+
+.footer-copyright h4 {
+    padding: 25px;
+    border-top: gray 2px solid;
+    border-bottom: none;
+    color: gray;
 }
 
 footer a {
     text-decoration: none;
     color: white;
+}
+
+.footer-shortcuts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+footer h4 {
+    border-bottom: #B5925C solid 3px;
+    display: inline-block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    padding-bottom: 5px;
+}
+
+.footer-info {
+    max-width: 250px;
 }
 
 footer a:hover {
@@ -192,32 +248,58 @@ footer a:hover {
     font-size: 20px;
     font-weight: normal;
 }
-
-footer {
+.home-info {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 0.5%;
-    border-top: solid 1px black;
-    background-color: #50404d;
-    bottom: 0;
-    color: white;
-}
-
-footer h5 {
-    color: gray;
-}
-
-.home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2%;
+    width: 100%;
+    background-color: #FFFFFF;
+    gap: 30px;
+    padding-top: 2.1%;
     height: 100%;
     padding-bottom: 10vh;
+}
+
+.info-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 180px;
+    max-width: 500px;
+    padding: 4%;
+    margin: 1%;
     border: solid 1px darkcyan;
     border-radius: 5px;
     box-shadow: inset 0 0 3px darkcyan;
     background-color: #FFFFFF;
+}
+
+.home-welkom {
+    border: solid 1px darkcyan;
+    border-radius: 5px;
+    padding: 1%;
+    box-shadow: inset 0 0 3px darkcyan;
+    background-color: #FFFFFF;
+}
+
+.infoknop {
+    text-decoration: none;
+    background-color: #B5925C;
+    border-radius: 5px;
+    max-width: 200px;
+    padding: 10px;
+    color: white !important;
+    transition: background-color 0.3s ease;
+}
+
+.infoknop:hover {
+    background-color: #967543;
+    color: white;
+}
+
+.info-home img {
+    max-width: 200px;
+    
 }
