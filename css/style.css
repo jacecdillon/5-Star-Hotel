@@ -72,7 +72,7 @@ body {
     flex: 1;
     align-items: center;
     justify-content: center;
-    padding: 2%;
+    padding: 7%;
     height: 100%;
     padding-bottom: 10vh;
 }
@@ -251,31 +251,27 @@ footer a:hover {
 .home-info {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
-    width: 100%;
-    background-color: #FFFFFF;
-    gap: 30px;
+    background-color: #faf8f5;
+    gap: 20px;
     padding-top: 2.1%;
-    height: 100%;
-    padding-bottom: 10vh;
+    padding-bottom: 3vh;
 }
 
 .info-home {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-height: 180px;
-    max-width: 500px;
-    padding: 4%;
-    margin: 1%;
-    border: solid 1px darkcyan;
-    border-radius: 5px;
-    box-shadow: inset 0 0 3px darkcyan;
+    width: 370px;
+    min-height: 520px;
+    height: auto;
+    margin: 0.9%;
+    padding-bottom: 10px;
+    border-radius: 10px;
     background-color: #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .home-welkom {
     border: solid 1px darkcyan;
     border-radius: 5px;
@@ -288,10 +284,12 @@ footer a:hover {
     text-decoration: none;
     background-color: #B5925C;
     border-radius: 5px;
-    max-width: 200px;
-    padding: 10px;
+    display: inline-block;
+    padding: 10px 10px;
+    height: auto;
     color: white !important;
     transition: background-color 0.3s ease;
+    margin-top: 15px;
 }
 
 .infoknop:hover {
@@ -300,6 +298,40 @@ footer a:hover {
 }
 
 .info-home img {
-    max-width: 200px;
-    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    display: block;
+}
+
+.info-home div {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.info-home div:first-child {
+    width: 100%;
+    height: 180px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 0;
 }
