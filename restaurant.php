@@ -9,63 +9,77 @@
 </head>
 
 <body>
-    <main class="main-about">
-        <div class="home-welkom">
-            <h1>Ons Restaurant</h1>
-            <p>Welkom in Ons Restaurant Bij Hotel De Zonne Vallei zijn we trots op ons wereldberoemde restaurant, waar culinaire dromen werkelijkheid worden. Onze 2-duimen chef-kok, bekend om zijn creativiteit en vakmanschap, brengt zijn passie voor koken tot leven in elk gerecht. Met jarenlange ervaring in gerenommeerde keukens over de hele wereld, zorgt onze chef voor een onvergetelijke eetervaring die zowel traditionele als moderne smaken combineert.</p>
-        </div>
-    </main>
-
-    <div class="restaurant-menu1">
-        <div class="home-info">
-        <div class="info-home">
-            <div>
-                <img src="./img/Kamers.jpg.jpg">
-            </div>
-            <div class="info-text">
-                <h2>Ontdek Onze Kamers</h2>
-                <p>Of u nu op zoek bent naar een romantisch uitje, een familievakantie of een zakelijke bijeenkomst, onze stijlvolle en goed uitgeruste kamers bieden alles wat u nodig heeft voor een onvergetelijk verblijf. Geniet van moderne voorzieningen, comfortabele bedden en een prachtig uitzicht op de omgeving.</p>
-                <a class="infoknop" href="rooms.php">Bekijk Kamers</a>
-            </div>
-        </div>
-
-        <div class="info-home">
-            <div>
-                <img src="./img/restaurant.jpg">
-            </div>
-            <div class="info-text">
-                <h2>Culinaire Verwennerij</h2>
-                <p>Laat uw smaakpapillen prikkelen in ons restaurant, waar onze chef-kok met passie lokale ingrediënten omtovert tot culinaire meesterwerken. Van een uitgebreid ontbijt tot een intiem diner, elke maaltijd is een ervaring op zich. Ontdek ons menu en geniet van de smaken van Alkmaar.</p>
-                <a class="infoknop" href="restaurant.php">Ontdek Het Menu</a>
-            </div>
-        </div>
-    </div>
-    <div class="restaurant-menu2">
-        <div class="home-info">
-            <div class="info-home">
-            <div>
-                <img src="./img/alkmaar.jpg">
-            </div>
-            <div class="info-text">
-                <h2>Ontdek de Omgeving</h2>
-                <p>Hotel De Zonne Vallei ligt in het bruisende hart van Alkmaar, een stad die rijk is aan geschiedenis en cultuur. Verken de pittoreske straatjes, bewonder de eeuwenoude architectuur en bezoek de wereldberoemde kaasmarkt. Of u nu winkelt in de boetiekjes, geniet van een drankje op een van de vele terrassen of een ontspannen wandeling maakt langs de grachten, Alkmaar biedt voor ieder wat wils. Ontdek de schoonheid en charme van deze historische stad tijdens uw verblijf in ons hotel.</p>
-                <a class="infoknop" href="about.php">Meer Over Ons</a>
-            </div>
-        </div>
-        <div class="info-home">
-            <div>
-                <img src="./img/restaurant.jpg">
-            </div>
-            <div class="info-text">
-                <h2>Ontdek de Omgeving</h2>
-                <p>Hotel De Zonne Vallei ligt in het bruisende hart van Alkmaar, een stad die rijk is aan geschiedenis en cultuur. Verken de pittoreske straatjes, bewonder de eeuwenoude architectuur en bezoek de wereldberoemde kaasmarkt. Of u nu winkelt in de boetiekjes, geniet van een drankje op een van de vele terrassen of een ontspannen wandeling maakt langs de grachten, Alkmaar biedt voor ieder wat wils. Ontdek de schoonheid en charme van deze historische stad tijdens uw verblijf in ons hotel.</p>
-                <a class="infoknop" href="about.php">Meer Over Ons</a>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <?php include("includes/footer.php"); ?>
+    
 </body>
 
-</html>
+</html><main class="main-about">
+    <div class="home-welkom">
+        <h1>Ons Restaurant</h1>
+        <p>Welkom in Ons Restaurant
+Bij Hotel De Zonne Vallei zijn we trots op ons wereldberoemde restaurant, waar culinaire dromen werkelijkheid worden. Onze 2-duimen chef-kok, bekend om zijn creativiteit en vakmanschap, brengt zijn passie voor koken tot leven in elk gerecht. Met jarenlange ervaring in gerenommeerde keukens over de hele wereld, zorgt onze chef voor een onvergetelijke eetervaring die zowel traditionele als moderne smaken combineert.</p>
+    </div>
+</main>
+
+<div class="menu-wrapper">
+    <h1 class="menu-top">Menu</h1>
+
+    <div class="info-home">
+        <div>
+            <img src="./img/Kamers.jpg.jpg" alt="Kamers">
+        </div>
+        <div class="info-text">
+            <h2>Voorgerechten</h2>
+            <p>Geroosterde Bietensalade - Met geitenkaas, walnoten en een honing-balsamico dressing.</p>
+                <p>Carpaccio van Rundvlees - Met truffelmayonaise, rucola en Parmezaanse kaas.</p>
+                <p>Gerookte Zalm - Met dillecrème, kappertjes en een citroenpartje.</p>
+                <p>Ravioli met Spinazie en Ricotta - In een romige tomatensaus met basilicum.</p>
+                <p>Gegratineerde Champignons - Gevuld met knoflook en kruiden, geserveerd met knapperig brood.</p>
+        </div>
+    </div>
+
+    <div class="info-home">
+        <div>
+            <img src="./img/restaurant.jpg" alt="Restaurant">
+        </div>
+        <div class="info-text">
+            <h2>Hoofdgerechten</h2>
+            <p>Gegrilde Zalmfilet - Met een citroen-dille saus, geserveerd met seizoensgroenten en aardappelpuree.</p>
+                <p>Ribeye Steak - Geserveerd met een pepersaus, gegrilde groenten en frietjes.</p>
+                <p>Kipfilet Supreme - Met een champignonroomsaus, gestoofde worteltjes en aardappelgratin.</p>
+                <p>Vegetarische Lasagne - Laagjes pasta, seizoensgroenten, ricotta en tomatensaus, geserveerd met een frisse salade.</p>
+                <p>Gebakken Zeebaars - Op een bedje van spinazie, geserveerd met rijst en een beurre blanc saus.</p>
+        </div>
+    </div>
+
+    <div class="info-home">
+        <div>
+            <img src="./img/alkmaar.jpg" alt="Alkmaar">
+        </div>
+        <div class="info-text">
+            <h2>Nagerechten</h2>
+            <p>Tiramisu - Klassieke Italiaanse dessert met lagen van koffie-geweekte koekjes en mascarpone crème.</p>
+                <p>Crème Brûlée - Rijke vanille custard met een knapperige gekarameliseerde suikerlaag.</p>
+                <p>Chocolade Fondant - Warme chocoladetaart met een vloeibare kern, geserveerd met vanille-ijs.</p>
+                <p>Lemon Cheesecake - Romige cheesecake met een vleugje citroen en een graham cracker korst.</p>
+                <p>Vers Fruit met Sorbet - Een selectie van seizoensfruit, geserveerd met verfrissende sorbet.</p></p>
+            <a class="infoknop" href="about.php">Meer Over Ons</a>
+        </div>
+    </div>
+
+    <div class="info-home">
+        <div>
+            <img src="./img/restaurant.jpg" alt="Restaurant">
+        </div>
+        <div class="info-text">
+            <h2>Kinder Menu's</h2>
+            <p>Mini Burger - Met kaas en frietjes.</p>
+                <p>Kipnuggets - Geserveerd met appelmoes en een klein salade.</p>
+                <p>Spaghetti Bolognese - Met huisgemaakte tomatensaus.</p>
+                <p>Pannenkoeken - Met stroop en poedersuiker.</p>
+                <p>Fish and Chips - Gebakken vis met frietjes en een beetje ketchup.</p>
+            <a class="infoknop" href="about.php">Meer Over Ons</a>
+        </div>
+    </div>
+</div>
+
+<?php include("includes/footer.php"); ?>
