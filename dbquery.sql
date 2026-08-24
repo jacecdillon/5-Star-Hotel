@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS `kamers` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `titel` VARCHAR(255) NOT NULL,
   `beschrijving` TEXT NOT NULL,
+  'type' VARCHAR(255) NOT NULL,
   `prijs` DECIMAL(10, 2) NOT NULL,
   `afbeelding` VARCHAR(255) NULL
 );
