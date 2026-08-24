@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Vul e-mail en wachtwoord in.';
     } else {
         try {
-            $stmt = $pdo->prepare('SELECT id, firstname, lastname, pass, is_admin FROM users WHERE email = ?');
+            $stmt = $db->prepare('SELECT id, firstname, lastname, pass, is_admin FROM users WHERE email = ?');
             $stmt->execute([$email]);
 
             if ($stmt->rowCount() === 0) {
@@ -41,6 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
@@ -58,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form method="POST" class="auth-form" novalidate>
                 <h1 class="auth-title">Inloggen</h1>
-                <p class="auth-subtitle">Log in op je account om toegang te krijgen.</p>
+                <p class="auth-subtitle">Log in op je account om toegang te krijgen tot je alumni profiel en berichten.</p>
 
                 <div class="form-group">
                     <label class="auth-label" for="email">E-mailadres</label>
@@ -70,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <button type="submit" class="auth-button">Inloggen</button>
 
+                <p class="auth-footer">Heeft u nog geen account? <a href="register.php">Registreer hier</a></p>
             </form>
         </div>
     </div>
