@@ -1,6 +1,10 @@
-DROP DATABASE IF EXISTS DeZonneVallei;
-CREATE DATABASE DeZonneVallei;
-USE DeZonneVallei;
+DROP DATABASE IF EXISTS dezonnevallei;
+CREATE DATABASE dezonnevallei;
+USE dezonnevallei;
+
+CREATE USER 'hoteladmin'@'localhost' IDENTIFIED BY 'securepass'; 
+GRANT ALL PRIVILEGES ON alumni.* TO 'alumni_user'@'localhost'; 
+FLUSH PRIVILEGES;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
