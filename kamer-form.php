@@ -6,6 +6,7 @@ $titel = "";
 $beschrijving = "";
 $prijs = "";
 $afbeelding = "";
+$soort = "";
 $is_edit = false;
 
 if (isset($_GET['edit'])) {
@@ -20,6 +21,7 @@ if (isset($_GET['edit'])) {
         $titel = $data['titel'];
         $beschrijving = $data['beschrijving'];
         $prijs = $data['prijs'];
+        $soort = $data['soort'];
         $afbeelding = $data['afbeelding'];
     }
 }
@@ -28,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST['titel'];
     $beschrijving = $_POST['beschrijving'];
     $prijs = $_POST['prijs'];
+    $soort = $_POST['soort'];
     $post_id = intval($_POST['id']);
     
     $afbeelding = $_POST['bestaande_afbeelding'] ?? '';
@@ -52,14 +55,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($post_id > 0) {
-        $sql = "UPDATE kamers SET titel = :titel, beschrijving = :beschrijving, prijs = :prijs, afbeelding = :afbeelding WHERE id = :id";
+        $sql = "UPDATE kamers SET titel = :titel, soort = :soort, beschrijving = :beschrijving, prijs = :prijs, afbeelding = :afbeelding WHERE id = :id";
         $stmt = $db->prepare($sql);
         $stmt->execute([
             ':titel' => $titel,
             ':beschrijving' => $beschrijving,
             ':prijs' => $prijs,
             ':afbeelding' => $afbeelding,
-            ':id' => $post_id
+            ':id' => $post_id,
+            ':soort' => $soort
         ]);
     } else {
         $sql = "INSERT INTO kamers (titel, beschrijving, prijs, afbeelding) VALUES (:titel, :beschrijving, :prijs, :afbeelding)";
@@ -68,7 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':titel' => $titel,
             ':beschrijving' => $beschrijving,
             ':prijs' => $prijs,
-            ':afbeelding' => $afbeelding
+            ':afbeelding' => $afbeelding,
+            ':soort' => $soort
         ]);
     }
 
@@ -99,6 +104,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <label for="titel">Titel</label>
                     <input type="text" id="titel" name="titel" value="<?php echo htmlspecialchars($titel); ?>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="soort">Type kamers</label>
+                    <input type="number" id="soort" name="soort" value="<?php echo htmlspecialchars($soort); ?>" required>
                 </div>
 
                 <div class="form-group">

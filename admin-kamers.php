@@ -34,6 +34,7 @@ $kamers = $query->fetchAll(PDO::FETCH_ASSOC);
                     <tr>
                         <th>Afbeelding</th>
                         <th>Titel</th>
+                        <th>Type</th>
                         <th>Prijs</th>
                         <th>Beschrijving</th>
                         <th>Acties</th>
@@ -44,6 +45,7 @@ $kamers = $query->fetchAll(PDO::FETCH_ASSOC);
                     <tr>
                         <td><img src="img/<?php echo htmlspecialchars($row['afbeelding']); ?>" class="admin-table-img" alt="Kamer"></td>
                         <td><?php echo htmlspecialchars($row['titel']); ?></td>
+                        <td><?php echo htmlspecialchars($row['soort']); ?></td>
                         <td><?php echo htmlspecialchars($row['prijs']); ?></td>
                         <td><?php echo htmlspecialchars($row['beschrijving']); ?></td>
                         <td>
