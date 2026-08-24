@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Vul e-mail en wachtwoord in.';
     } else {
         try {
-            $stmt = $pdo->prepare('SELECT id, firstname, lastname, pass, is_admin, profile_picture FROM users WHERE email = ?');
+            $stmt = $pdo->prepare('SELECT id, firstname, lastname, pass, is_admin FROM users WHERE email = ?');
             $stmt->execute([$email]);
 
             if ($stmt->rowCount() === 0) {
