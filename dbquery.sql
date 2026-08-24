@@ -3,7 +3,7 @@ CREATE DATABASE dezonnevallei;
 USE dezonnevallei;
 
 CREATE USER 'hoteladmin'@'localhost' IDENTIFIED BY 'securepass'; 
-GRANT ALL PRIVILEGES ON alumni.* TO 'alumni_user'@'localhost'; 
+GRANT ALL PRIVILEGES ON dezonnevallei.* TO 'hoteladmin'@'localhost'; 
 FLUSH PRIVILEGES;
 
 CREATE TABLE IF NOT EXISTS users (
