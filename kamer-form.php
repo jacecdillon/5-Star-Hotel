@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':soort' => $soort
         ]);
     } else {
-        $sql = "INSERT INTO kamers (titel, beschrijving, prijs, afbeelding) VALUES (:titel, :beschrijving, :prijs, :afbeelding)";
+        $sql = "INSERT INTO kamers (titel, beschrijving, prijs, afbeelding, soort) VALUES (:titel, :beschrijving, :prijs, :afbeelding, :soort)";
         $stmt = $db->prepare($sql);
         $stmt->execute([
             ':titel' => $titel,
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="form-group">
                     <label for="soort">Type kamers</label>
-                    <input type="number" id="soort" name="soort" value="<?php echo htmlspecialchars($soort); ?>" required>
+                    <input type="text" id="soort" name="soort" value="<?php echo htmlspecialchars($soort); ?>" required>
                 </div>
 
                 <div class="form-group">
