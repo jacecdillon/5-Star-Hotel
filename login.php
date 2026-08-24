@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Vul e-mail en wachtwoord in.';
     } else {
         try {
-            $stmt = $pdo->prepare('SELECT id, firstname, lastname, pass, is_admin FROM users WHERE email = ?');
+            $stmt = $db->prepare('SELECT id, firstname, lastname, pass, is_admin FROM users WHERE email = ?');
             $stmt->execute([$email]);
 
             if ($stmt->rowCount() === 0) {
@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     session_regenerate_id(true);
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['user_name'] = trim($row['firstname'] . ' ' . $row['lastname']);
-                    $_SESSION['rol'] = $row['is_admin'] ? 'admin' : 'leerling';
                     header('Location: index.php');
                     exit;
                 }
