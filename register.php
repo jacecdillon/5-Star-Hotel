@@ -61,12 +61,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Registreren</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+    <?php include_once 'includes/nav.php'; ?>
 </head>
 
 <body>
-    <?php include_once 'includes/nav.php'; ?>
-
+<main class="main-register">
     <div class="register-container auth-page-container">
         <div class="auth-card">
             <?php if (!empty($error)): ?>
@@ -80,55 +80,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             <?php else: ?>
 
-            <form method="POST" class="auth-form" novalidate>
-                <h1 class="auth-title">Registreren</h1>
-                <p class="auth-subtitle">Maak een account aan om toegang te krijgen tot het alumni platform.</p>
+            <form method="POST" class="register-page" novalidate>
+                <div class="register-form">
+                    <h1>Registreren</h1>
+                    <p>Maak een account aan om toegang te krijgen tot het alumni platform.</p>
 
-                <div class="form-group">
-                    <label class="auth-label" for="voornaam">Voornaam</label>
-                    <input id="voornaam" class="auth-input" type="text"
-                           name="voornaam" maxlength="50" required
-                           value="<?= htmlspecialchars($_POST['voornaam'] ?? '') ?>">
-                </div>
-
-                <div class="form-group">
-                    <label class="auth-label" for="achternaam">Achternaam</label>
-                    <input id="achternaam" class="auth-input" type="text"
-                           name="achternaam" maxlength="50" required
-                           value="<?= htmlspecialchars($_POST['achternaam'] ?? '') ?>">
-                </div>
-
-                <div class="form-group">
-                    <label class="auth-label" for="email">E-mailadres</label>
-                    <input id="email" class="auth-input" type="email"
-                           name="email" maxlength="50" required
-                           value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-                </div>
-
-                <div class="form-group">
-                    <label class="auth-label" for="wachtwoord">Wachtwoord</label>
-                    <input id="wachtwoord" class="auth-input" type="password"
-                        name="wachtwoord" maxlength="72" required>
-                    <div class="password-hints">
-                        <small class="password-req">• Minimaal 8 tekens</small>
-                        <small class="password-req">• Minimaal 1 cijfer</small>
+                    <div class="register-email">
+                        <h4 for="voornaam">Voornaam</h4>
+                        <input id="voornaam" class="auth-input" type="text"
+                            name="voornaam" maxlength="50" required
+                            value="<?= htmlspecialchars($_POST['voornaam'] ?? '') ?>">
                     </div>
+
+                    <div class="register-email">
+                        <h4 for="achternaam">Achternaam</h4>
+                        <input id="achternaam" class="auth-input" type="text"
+                            name="achternaam" maxlength="50" required
+                            value="<?= htmlspecialchars($_POST['achternaam'] ?? '') ?>">
+                    </div>
+
+                    <div class="register-email">
+                        <h4 for="email">E-mailadres:</h4>
+                        <input id="email" class="auth-input" type="email"
+                            name="email" maxlength="50" required
+                            value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                    </div>
+
+                    <div class="register-pass">
+                        <h4 for="wachtwoord">Wachtwoord:</h4>
+                        <input id="wachtwoord" class="auth-input" type="password"
+                            name="wachtwoord" maxlength="72" required>
+                        <div class="password-hints">
+                            <small class="password-req">• Minimaal 8 tekens</small>
+                            <small class="password-req">• Minimaal 1 cijfer</small>
+                        </div>
+                    </div>
+
+                    <div class="register-pass">
+                        <h4 for="confirm_wachtwoord">Bevestig wachtwoord:</h4>
+                        <input id="confirm_wachtwoord" class="auth-input" type="password"
+                            name="confirm_wachtwoord" maxlength="72" required>
+                    </div>
+
+                    <button type="submit" class="register-submit">Registreren</button>
+
+                    <p>Heb je al een account? <a href="login.php">Login</a></p>
                 </div>
-
-                <div class="form-group">
-                    <label class="auth-label" for="confirm_wachtwoord">Bevestig wachtwoord</label>
-                    <input id="confirm_wachtwoord" class="auth-input" type="password"
-                        name="confirm_wachtwoord" maxlength="72" required>
-                </div>
-
-                <button type="submit" class="auth-button">Registreren</button>
-
-                <p class="auth-footer">Heb je al een account? <a href="login.php">Login</a></p>
             </form>
 
             <?php endif; ?>
         </div>
     </div>
+</main>
     <?php include 'includes/footer.php'; ?>
 </body>
 
