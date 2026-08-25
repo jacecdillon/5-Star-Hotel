@@ -79,39 +79,6 @@ html, body {
     color: #C80815;
 }
 
-.main-about {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    padding: 7%;
-    height: 100%;
-    padding-bottom: 10vh;
-}
-
-.about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2%;
-    background-color: #FFFFFF;
-    border: solid 1px darkcyan;
-    box-shadow: inset 0 0 3px darkcyan;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 800px;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2%;
-}
-
 footer {
     display: flex;
     flex-direction: column;
