@@ -7,6 +7,7 @@ body {
     font-family: 'Comic Neue', Arial Narrow, Arial, sans-serif;
     min-height: 100vh;
 }
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -570,3 +571,26 @@ html, body {
     width:100%;
     resize: none;
 }
+
+.info-text .gerecht-titel {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 12px 0 2px 0;
+    padding-left: 8px;
+    line-height: 1.2;
+}
+
+.info-text h1 + .gerecht-titel {
+    margin-top: 15px;
+}
+
+.info-text p {
+    margin: 0 0 5px 0;
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.1;
+}
+
+/* Bezoeker */
+

@@ -1,6 +1,19 @@
 <?php
 session_start();
 require 'db.php';
+
+include("./db.php");
+
+if (isset($_GET['delete'])) {
+    $id = intval($_GET['delete']);
+    $stmt = $db->prepare("DELETE FROM kamers WHERE id = :id");
+    $stmt->execute([':id' => $id]);
+    header("Location: admin-kamers.php");
+    exit;
+}
+
+$query = $db->query("SELECT * FROM kamers");
+$kamers = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -10,16 +23,39 @@ require 'db.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Kamers</title>
-    <?php include("includes/nav.php"); ?>
 </head>
 <body>
-    <main>
-        <div class="rooms">
-            <h1>Kamers</h1>
-            <p>Welkom bij De Zonne Vallei, waar luxe en comfort samenkomen in onze prachtige kamers. Onze kamers zijn ontworpen met oog voor detail en bieden een oase van rust en ontspanning. Of u nu kiest voor een elegante suite of een gezellige standaardkamer, elke kamer is voorzien van moderne voorzieningen en een warme ambiance.</p>
-            <p>Geniet van het adembenemende uitzicht op de stad vanuit uw kamer, ontspan in het comfortabele bed en ervaar de ultieme gastvrijheid die ons hotel te bieden heeft. Bij De Zonne Vallei streven we ernaar om uw verblijf onvergetelijk te maken, zodat u zich volledig kunt onderdompelen in luxe en comfort.</p>
+    <?php include("includes/nav.php"); ?>
+
+    <main class="main-content">
+        <div class="admin-container">
+            <h1 class="menu-top">Kamerbeheer</h1>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Afbeelding</th>
+                        <th>Titel</th>
+                        <th>Type</th>
+                        <th>Prijs</th>
+                        <th>Beschrijving</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($kamers as $row): ?>
+                    <tr>
+                        <td><img src="img/<?php echo htmlspecialchars($row['afbeelding']); ?>" class="admin-table-img" alt="Kamer"></td>
+                        <td><?php echo htmlspecialchars($row['titel']); ?></td>
+                        <td><?php echo htmlspecialchars($row['soort']); ?></td>
+                        <td><?php echo htmlspecialchars($row['prijs']); ?></td>
+                        <td><?php echo htmlspecialchars($row['beschrijving']); ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </main>
+
     <?php include("includes/footer.php"); ?>
 </body>
 </html>
