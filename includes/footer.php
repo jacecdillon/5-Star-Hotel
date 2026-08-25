@@ -7,7 +7,7 @@
         <div class="footer-shortcuts">
             <h4>Snel Naar</h4>
             <a href="index.php">Home</a>
-            <a href="rooms.php">Onze Kamers</a>
+            <a href="kamers.php">Onze Kamers</a>
             <a href="restaurant.php">Ons Restaurant</a>
             <a href="about.php">Over Ons</a>
             <a href="contact.php">Contact & Reserveringen</a>

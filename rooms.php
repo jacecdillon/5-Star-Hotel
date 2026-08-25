@@ -38,7 +38,7 @@ $kamers = $query->fetchAll(PDO::FETCH_ASSOC);
 
                      <div class="kamer-footer">
                         <span class="prijs">$<?php echo htmlspecialchars($kamer['prijs']); ?><span> /nacht </span></span>
-                        <a href="contact.php">Contact</a>
+                        <a href="book.php"><?php echo htmlspecialchars($kamer['id']); ?>Contact</a>
                     </div>
                 </div>
             </div>
