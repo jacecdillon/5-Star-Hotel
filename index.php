@@ -14,7 +14,7 @@ require 'db.php';
 </head>
 
 <body>
-    <main class="main-about">
+    <main class="main-home">
         <div class="home-welkom">
             <h1>Welkom bij Hotel De Zonne Vallei</h1>
             <p>Ontsnap aan de dagelijkse drukte en ontdek de rust en luxe van Hotel De Zonne Vallei, een 3-duimen hotel gelegen in het hart van Alkmaar. Ons hotel biedt een perfecte mix van comfort, gastvrijheid en adembenemende natuur. Of u nu voor een romantisch uitje, een familievakantie of een zakelijke bijeenkomst komt, ons hotel heeft precies wat u nodig heeft voor een onvergetelijk verblijf.</p>

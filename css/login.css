@@ -85,15 +85,15 @@ html, body {
     flex-direction: row;
     padding: 2%;
     height: 100%;
-    padding-bottom: 7vh;
+    padding-bottom: 21.3vh;
 }
 
-.loginpage {
+.login-page {
     display: flex;
     align-items: center;
 }
 
-.loginform {
+.login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,7 +109,7 @@ html, body {
     font-weight: bold;
 }
 
-.loginform p {
+.login-form p {
     font-weight: 300;
     text-align: center;
 }

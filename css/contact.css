@@ -145,7 +145,7 @@ textarea {
 
 .contact-info {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-around;
     text-align: center;
     max-width: 1000px;
@@ -170,7 +170,7 @@ textarea {
     flex-direction: row;
     padding: 2%;
     height: 100%;
-    padding-bottom: 7vh;
+    padding-bottom: 16.9vh;
 }
 
 .contact h4 {
@@ -186,7 +186,6 @@ footer {
     align-items: center;
     border-top: solid 1px black;
     background-color: #50404d;
-    bottom: 0;
     color: white;
 }
 

@@ -9,7 +9,7 @@
 <body>
     <?php include("includes/nav.php"); ?>
 
-    <main class="main-about">
+    <main class="main-restaurant">
         <div class="home-welkom">
             <h1>Ons Restaurant</h1>
             <p>Welkom in Ons Restaurant Bij Hotel De Zonne Vallei zijn we trots op ons wereldberoemde restaurant, waar culinaire dromen werkelijkheid worden. Onze 2-duimen chef-kok, bekend om zijn creativiteit en vakmanschap, brengt zijn passie voor koken tot leven in elk gerecht. Met jarenlange ervaring in gerenommeerde keukens over de hele wereld, zorgt onze chef voor een onvergetelijke eetervaring die zowel traditionele als moderne smaken combineert.</p>

@@ -12,11 +12,7 @@ $kamers = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>Onze Kamers</title>
-=======
-    <title>Kamers</title>
->>>>>>> 694fbe059158aa0d0a1fb872ea92b79ae8c4ecc3
 </head>
 
 <body>

@@ -198,6 +198,17 @@ footer a:hover {
     margin-bottom: 15px;
 }
 
+.main-home {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 7%;
+    height: 100%;
+    padding-bottom: 10vh;
+}
+
 .info-text {
     display: flex;
     flex-direction: column;
@@ -218,6 +229,17 @@ footer a:hover {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom: 0;
+}
+
+.main-restaurant {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 7%;
+    height: 100%;
+    padding-bottom: 10vh;
 }
 
 .menu-wrapper {
@@ -395,6 +417,7 @@ footer a:hover {
     flex-direction: column;
     padding: 20px 40px;
 }
+
 
 .admin-container {
     max-width: 900px;

@@ -54,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="error-box"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
 
-                <form method="POST" class="loginpage" novalidate>
-                    <div class="loginform">
+                <form method="POST" class="login-page" novalidate>
+                    <div class="login-form">
                         <h3>Inloggen</h3>
                         <p>Log in op je account om toegang te krijgen.</p>
 
