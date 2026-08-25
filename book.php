@@ -2,6 +2,17 @@
 session_start();
 require 'db.php';
 
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    header("Location:kamers.php");
+    exit;
+}
+
+$kamder_id = intval($_GET['id']);
+
+$stmt = $db->prepare("SELECT * FROM kamers WHERE id = :id");
+$stmt->execute([':id' => $kamer_id]);
+$kamer = $stmt->fetch()
+
 include("./db.php");
 
 $query = $db->query("SELECT * FROM kamers");
