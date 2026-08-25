@@ -75,74 +75,82 @@ html, body {
     object-fit: contain;
 }
 
-.error-box {
-    color: #C80815;
-}
-
-.main-login {
+.main-about {
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding: 2%;
-    height: 100%;
-    padding-bottom: 7vh;
-}
-
-.loginpage {
-    display: flex;
+    flex-direction: column;
+    flex: 1;
     align-items: center;
+    justify-content: center;
+    padding: 7%;
+    height: 100%;
+    padding-bottom: 10vh;
 }
 
-.loginform {
+.about-content {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.about {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
-    width: 400px;
     justify-content: center;
-    padding: 5%;
-    border-radius: 10px;
-    background-color: #FFFFFF;
+    padding: 2%;
+    background-color: #faf8f5;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
     transition: transform 0.3s, box-shadow 0.3s;
-    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 2000px;
 }
 
-.loginform p {
-    font-weight: 300;
-    text-align: center;
+.about-two {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    padding: 2%;
+    gap: 15px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 2000px;
 }
 
-.login-email, .login-pass {
+.about-verhaal {
+    background-color: #FFFFFF;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+}
+
+.about-waarden {
+    background-color: #FFFFFF;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+}
+
+.about-team {
+    background-color: #FFFFFF;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+}
+
+.about-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: bold;
-    padding-bottom: 1%;
-}
-
-.login-email input, .login-pass input {
-    border: 1px solid gray;
-    padding-left: 10px;
-    border-radius: 25px;
-    height: 25px;
-    width: 200px;
-    margin-bottom: 15px;
-}
-
-.login-submit {
-    text-align: center;
-    background-color: #B5925C;
-    color: #FFFFFF;
-    font-weight: 600;
-    padding: 10px;
-    border: none;
-    margin-bottom: 10px;
-    width: 25%;
-    height: 100%;
-    border-radius: 5px;
-    cursor: pointer;
+    justify-content: center;
+    padding: 2%;
 }
 
 footer {
