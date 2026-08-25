@@ -4,14 +4,6 @@ require 'db.php';
 
 include("./db.php");
 
-if (isset($_GET['delete'])) {
-    $id = intval($_GET['delete']);
-    $stmt = $db->prepare("DELETE FROM kamers WHERE id = :id");
-    $stmt->execute([':id' => $id]);
-    header("Location: admin-kamers.php");
-    exit;
-}
-
 $query = $db->query("SELECT * FROM kamers");
 $kamers = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -20,42 +12,40 @@ $kamers = $query->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Kamers</title>
+    <title>Document</title>
 </head>
+
 <body>
     <?php include("includes/nav.php"); ?>
 
     <main class="main-content">
-        <div class="admin-container">
-            <h1 class="menu-top">Kamerbeheer</h1>
+        <h1 class="page-title">Onze Kamers</h1>
+             <div class="kamers-grid">
+            <?php foreach ($kamers as $kamer): ?>
 
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>Afbeelding</th>
-                        <th>Titel</th>
-                        <th>Type</th>
-                        <th>Prijs</th>
-                        <th>Beschrijving</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($kamers as $row): ?>
-                    <tr>
-                        <td><img src="img/<?php echo htmlspecialchars($row['afbeelding']); ?>" class="admin-table-img" alt="Kamer"></td>
-                        <td><?php echo htmlspecialchars($row['titel']); ?></td>
-                        <td><?php echo htmlspecialchars($row['soort']); ?></td>
-                        <td><?php echo htmlspecialchars($row['prijs']); ?></td>
-                        <td><?php echo htmlspecialchars($row['beschrijving']); ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+            <div class="kamer-kaart">
+                <div class="kamer-afbeelding">
+                    <img src="img/<?php echo htmlspecialchars($kamer['afbeelding']); ?>"
+                    alt="<?php echo htmlspecialchars($kamer['titel']); ?>">
+                </div>
+
+                <div class="kamer-info"> 
+                    <span class="kamer-soort"><?php echo htmlspecialchars($kamer['soort']); ?></span>
+                    <h2><?php echo htmlspecialchars($kamer['titel']); ?></h2>
+                    <p class="kamer-beschrijving"><?php echo htmlspecialchars($kamer['beschrijving']); ?></p>
+
+                     <div class="kamer-footer">
+                        <span class="prijs">$<?php echo htmlspecialchars($kamer['prijs']); ?><span> /nacht </span></span>
+                        <a href="contact.php">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach ?>
     </main>
 
     <?php include("includes/footer.php"); ?>
 </body>
+
 </html>
