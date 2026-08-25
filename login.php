@@ -43,38 +43,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
     <?php include_once 'includes/nav.php'; ?>
 </head>
 
 <body>
-    <main class="main-content">
-        <div class="login-container auth-page-container">
+    <main class="main-login">
             <div class="auth-card">
                 <?php if (!empty($error)): ?>
                     <div class="error-box"><?php echo htmlspecialchars($error); ?></div>
                 <?php endif; ?>
 
-                <form method="POST" class="auth-form" novalidate>
-                    <div class="home-welkom">
-                        <h1 class="auth-title">Inloggen</h1>
-                        <p class="auth-subtitle">Log in op je account om toegang te krijgen.</p>
+                <form method="POST" class="loginpage" novalidate>
+                    <div class="loginform">
+                        <h3>Inloggen</h3>
+                        <p>Log in op je account om toegang te krijgen.</p>
 
-                        <div class="form-group">
-                            <label class="auth-label" for="email">E-mailadres</label>
+                        <div class="login-email">
+                            <h4>E-mailadres:</h4>
                             <input class="auth-input" type="email" id="email" name="email" maxlength="50" required value="<?= htmlspecialchars($email ?? '') ?>">
                         </div>
+                        <div class="login-pass">
+                            <h4 for="wachtwoord">Wachtwoord:</h4>
+                            <input type="password" id="wachtwoord" name="wachtwoord" maxlength="200" required>
+                        </div> 
+                        <button type="submit" class="login-submit">Inloggen</button>
 
-                        <label class="auth-label" for="wachtwoord">Wachtwoord:</label>
-                        <input class="auth-input" type="password" id="wachtwoord" name="wachtwoord" maxlength="200" required>
-
-                        <button type="submit" class="auth-button">Inloggen</button>
-
-                        <p class="auth-footer">Heeft u nog geen account? <a href="register.php">Registreer hier</a></p>
+                        <p>Heeft u nog geen account? <a href="register.php">Registreer hier</a></p>
                     </div>
                 </form>
             </div>
-        </div>
     </main>
     <?php include 'includes/footer.php'; ?>
 </body>
