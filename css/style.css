@@ -68,6 +68,10 @@ body {
     object-fit: contain;
 }
 
+.error-box {
+    color: #C80815;
+}
+
 .main-about {
     display: flex;
     flex-direction: column;
