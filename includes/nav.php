@@ -12,9 +12,7 @@
 </div>
 <div class="nav-rechts">
     <?php if (has_role('admin')): ?>
-        <div class="dropdown">
             <a href="event_add.php">Events toevoegen</a>
-        </div>
     <?php endif; ?>
     <?php if (isset($_SESSION['user_id'])): ?>
         <a class="nav-cta" href="logout.php">Uitloggen</a>
