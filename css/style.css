@@ -581,4 +581,58 @@ footer a:hover {
         margin-bottom: 8px;
     }
 
+    /* Restaurant pagina op telefoon */
+
+    .info-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    }
+
+    .info-home img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    }
+
+    .menu-wrapper {
+    background-color: #FFFFFF;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 40px 20px 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    }
+
+    .info-home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    min-height: auto;
+    height: auto;
+    margin: 0.9%;
+    padding-bottom: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.home-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #faf8f5;
+    gap: 30px;     
+    padding: 40px 20px;
+}
+
+
 }
