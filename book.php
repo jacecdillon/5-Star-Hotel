@@ -29,12 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $vandaag = date('Y-m-d');
 
+    $domain = substr(strrchr($email, "@"), 1);
+
     if ($kamer['aantal'] <= 0) {
         $foutmelding = "Helaas, deze kamer is zojuist volgeboekt.";
     } else if (empty($naam) || empty($email) || empty($check_in) || empty($check_uit)) {
         $foutmelding = "Vul alstublieft alle velden in.";
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $foutmelding = "Vul een geldig e-mailadres in.";
+    } else if (!checkdnsrr($domain, "MX")) {
+        $foutmelding = "Het domein van dit e-mailadres (@" . htmlspecialchars($domain) . ") bestaat niet of kan geen e-mail ontvangen.";
     } else if ($check_in < $vandaag) {
         $foutmelding = "De check-in datum kan niet in het verleden liggen.";
     } else if ($check_uit <= $check_in) {
@@ -48,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':check_in' => $check_in,
             ':check_uit'=> $check_uit
         ]);
-
         $updateStmt = $db->prepare("UPDATE kamers SET aantal = aantal - 1 WHERE id = :id AND aantal > 0");
         $updateStmt->execute([':id' => $kamer_id]);
 
@@ -81,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="booking-price">
                     Prijs: <strong>€<?php echo number_format($kamer['prijs'], 2, ',', '.'); ?></strong> / nacht
                 </div>
-                <div class="booking-stock" style="margin-top: 15px;">
+                <div class="booking-stock">
                     <strong>Beschikbaar:</strong> <?php echo htmlspecialchars($kamer['aantal']); ?> kamer(s)
                 </div>
             </div>
@@ -92,10 +95,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php if ($succesmelding): ?>
                     <div class="alert alert-success">
                         <p><?php echo $succesmelding; ?></p>
-                        <a href="rooms.php" class="boek-btn" style="display: inline-block; margin-top: 15px; text-decoration: none;">Terug naar alle kamers</a>
+                        <a href="rooms.php" class="boek-btn">Terug naar alle kamers</a>
                     </div>
                 <?php else: ?>
-                    <!-- Bij fouten of voor het invullen tonen we dit gedeelte -->
                     <?php if ($foutmelding): ?>
                         <div class="alert alert-error"><?php echo $foutmelding; ?></div>
                     <?php endif; ?>
@@ -104,12 +106,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <form method="POST" action="" class="booking-form">
                             <div class="form-group">
                                 <label for="naam">Volledige naam</label>
-                                <input type="text" id="naam" name="naam" required placeholder="bijv. Jan Jansen" value="<?php echo isset($_POST['naam']) ? htmlspecialchars($_POST['naam']) : ''; ?>">
+                                <input type="text" id="naam" name="naam" required placeholder="Ben Dover" value="<?php echo isset($_POST['naam']) ? htmlspecialchars($_POST['naam']) : ''; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="email">E-mailadres</label>
-                                <input type="email" id="email" name="email" required placeholder="jansen@gmail.com" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
+                                <input type="email" id="email" name="email" required placeholder="BenDover@gmail.com" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
                             </div>
 
                             <div class="form-group">
