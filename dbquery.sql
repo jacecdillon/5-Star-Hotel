@@ -22,5 +22,17 @@ CREATE TABLE IF NOT EXISTS kamers (
     beschrijving TEXT NOT NULL,
     soort VARCHAR(255) NOT NULL,
     prijs DECIMAL(10, 2) NOT NULL,
-    afbeelding VARCHAR(255) NULL
+    afbeelding VARCHAR(255) NULL,
+    aantal INT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE IF NOT EXISTS boeking (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    kamer_id INT NOT NULL,
+    naam VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    check_in DATE NOT NULL,
+    check_uit DATE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (kamer_id) REFERENCES kamers(id) ON DELETE CASCADE
 );

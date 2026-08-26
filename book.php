@@ -3,7 +3,7 @@ session_start();
 require_once 'db.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: book.php");
+    header("Location: rooms.php");
     exit;
 }
 
@@ -27,10 +27,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check_in = $_POST['check_in'];
     $check_uit = $_POST['check_uit'];
 
-    if (!empty($naam) && !empty($email) && !empty($check_in) && !empty($check_uit)) {
-        $succesmelding = "Bedankt $naam! Je boeking voor de " . htmlspecialchars($kamer['titel']) . " is ontvangen.";
-    } else {
+    $vandaag = date('Y-m-d');
+
+    if ($kamer['aantal'] <= 0) {
+        $foutmelding = "Helaas, deze kamer is zojuist volgeboekt.";
+    } else if (empty($naam) || empty($email) || empty($check_in) || empty($check_uit)) {
         $foutmelding = "Vul alstublieft alle velden in.";
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $foutmelding = "Vul een geldig e-mailadres in.";
+    } else if ($check_in < $vandaag) {
+        $foutmelding = "De check-in datum kan niet in het verleden liggen.";
+    } else if ($check_uit <= $check_in) {
+        $foutmelding = "De check-uit datum moet na de check-in datum liggen.";
+    } else {
+        $boekingStmt = $db->prepare("INSERT INTO boeking (kamer_id, naam, email, check_in, check_uit) VALUES (:kamer_id, :naam, :email, :check_in, :check_uit)");
+        $boekingStmt->execute([
+            ':kamer_id' => $kamer_id,
+            ':naam'     => $naam,
+            ':email'    => $email,
+            ':check_in' => $check_in,
+            ':check_uit'=> $check_uit
+        ]);
+
+        $updateStmt = $db->prepare("UPDATE kamers SET aantal = aantal - 1 WHERE id = :id AND aantal > 0");
+        $updateStmt->execute([':id' => $kamer_id]);
+
+        $kamer['aantal'] -= 1;
+
+        $succesmelding = "Bedankt " . htmlspecialchars($naam) . "! Je boeking voor de " . htmlspecialchars($kamer['titel']) . " is ontvangen.";
     }
 }
 ?>
@@ -55,7 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h1><?php echo htmlspecialchars($kamer['titel']); ?></h1>
                 <p><?php echo htmlspecialchars($kamer['beschrijving']); ?></p>
                 <div class="booking-price">
-                    Prijs: <strong>€<?php echo htmlspecialchars($kamer['prijs']); ?></strong> / nacht
+                    Prijs: <strong>€<?php echo number_format($kamer['prijs'], 2, ',', '.'); ?></strong> / nacht
+                </div>
+                <div class="booking-stock" style="margin-top: 15px;">
+                    <strong>Beschikbaar:</strong> <?php echo htmlspecialchars($kamer['aantal']); ?> kamer(s)
                 </div>
             </div>
 
@@ -63,36 +90,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Reserveer deze kamer</h2>
 
                 <?php if ($succesmelding): ?>
-                    <div class="alert alert-success"><?php echo $succesmelding; ?></div>
+                    <div class="alert alert-success">
+                        <p><?php echo $succesmelding; ?></p>
+                        <a href="rooms.php" class="boek-btn" style="display: inline-block; margin-top: 15px; text-decoration: none;">Terug naar alle kamers</a>
+                    </div>
+                <?php else: ?>
+                    <!-- Bij fouten of voor het invullen tonen we dit gedeelte -->
+                    <?php if ($foutmelding): ?>
+                        <div class="alert alert-error"><?php echo $foutmelding; ?></div>
+                    <?php endif; ?>
+
+                    <?php if ($kamer['aantal'] > 0): ?>
+                        <form method="POST" action="" class="booking-form">
+                            <div class="form-group">
+                                <label for="naam">Volledige naam</label>
+                                <input type="text" id="naam" name="naam" required placeholder="bijv. Jan Jansen" value="<?php echo isset($_POST['naam']) ? htmlspecialchars($_POST['naam']) : ''; ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">E-mailadres</label>
+                                <input type="email" id="email" name="email" required placeholder="jansen@gmail.com" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="check_in">Check-in datum</label>
+                                <input type="date" id="check_in" name="check_in" required value="<?php echo isset($_POST['check_in']) ? htmlspecialchars($_POST['check_in']) : ''; ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="check_uit">Check-uit datum</label>
+                                <input type="date" id="check_uit" name="check_uit" required value="<?php echo isset($_POST['check_uit']) ? htmlspecialchars($_POST['check_uit']) : ''; ?>">
+                            </div>
+
+                            <button type="submit" class="boek-btn submit-btn">Boeking Bevestigen</button>
+                        </form>
+                    <?php else: ?>
+                        <div class="alert alert-error">Deze kamer is helaas volgeboekt. Reserveren is niet meer mogelijk.</div>
+                    <?php endif; ?>
                 <?php endif; ?>
-
-                <?php if ($foutmelding): ?>
-                    <div class="alert alert-error"><?php echo $foutmelding; ?></div>
-                <?php endif; ?>
-
-                <form method="POST" action="" class="booking-form">
-                    <div class="form-group">
-                        <label for="naam">Volledige naam</label>
-                        <input type="text" id="naam" name="naam" required placeholder="bijv. Ben Dover">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">E-mailadres</label>
-                        <input type="email" id="email" name="email" required placeholder="bendover@gmail.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="check_in">Check-in datum</label>
-                        <input type="date" id="check_in" name="check_in" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="check_uit">Check-uit datum</label>
-                        <input type="date" id="check_uit" name="check_uit" required>
-                    </div>
-
-                    <button type="submit" class="boek-btn submit-btn">Boeking Bevestigen</button>
-                </form>
             </div>
 
         </div>

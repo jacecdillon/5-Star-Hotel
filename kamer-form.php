@@ -7,6 +7,7 @@ $beschrijving = "";
 $prijs = "";
 $afbeelding = "";
 $soort = "";
+$aantal = 1;
 $is_edit = false;
 
 if (isset($_GET['edit'])) {
@@ -23,6 +24,7 @@ if (isset($_GET['edit'])) {
         $prijs = $data['prijs'];
         $soort = $data['soort'];
         $afbeelding = $data['afbeelding'];
+        $aantal = isset($data['aantal']) ? intval($data['aantal']) : 1;
     }
 }
 
@@ -30,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST['titel'];
     $beschrijving = $_POST['beschrijving'];
     $prijs = $_POST['prijs'];
-    $soort = $_POST['soort'];
+    $soort = $_POST['soort'] ?? '';
+    $aantal = intval($_POST['aantal']);
     $post_id = intval($_POST['id']);
     
     $afbeelding = $_POST['bestaande_afbeelding'] ?? '';
@@ -40,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fileName = $_FILES['afbeelding']['name'];
         
         $nieuweBestandsNaam = time() . '_' . $fileName;
-        
         $uploadMap = './img/';
         
         if (!is_dir($uploadMap)) {
@@ -55,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($post_id > 0) {
-        $sql = "UPDATE kamers SET titel = :titel, soort = :soort, beschrijving = :beschrijving, prijs = :prijs, afbeelding = :afbeelding WHERE id = :id";
+        $sql = "UPDATE kamers SET titel = :titel, soort = :soort, beschrijving = :beschrijving, prijs = :prijs, afbeelding = :afbeelding, aantal = :aantal WHERE id = :id";
         $stmt = $db->prepare($sql);
         $stmt->execute([
             ':titel' => $titel,
@@ -63,17 +65,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':prijs' => $prijs,
             ':afbeelding' => $afbeelding,
             ':id' => $post_id,
-            ':soort' => $soort
+            ':soort' => $soort,
+            ':aantal' => $aantal
         ]);
     } else {
-        $sql = "INSERT INTO kamers (titel, beschrijving, prijs, afbeelding, soort) VALUES (:titel, :beschrijving, :prijs, :afbeelding, :soort)";
+        $sql = "INSERT INTO kamers (titel, beschrijving, prijs, afbeelding, soort, aantal) VALUES (:titel, :beschrijving, :prijs, :afbeelding, :soort, :aantal)";
         $stmt = $db->prepare($sql);
         $stmt->execute([
             ':titel' => $titel,
             ':beschrijving' => $beschrijving,
             ':prijs' => $prijs,
             ':afbeelding' => $afbeelding,
-            ':soort' => $soort
+            ':soort' => $soort,
+            ':aantal' => $aantal
         ]);
     }
 
@@ -107,8 +111,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="form-group">
-                    <label for="soort">Type kamers</label>
+                    <label for="soort">Kamertype / Soort</label>
                     <input type="text" id="soort" name="soort" value="<?php echo htmlspecialchars($soort); ?>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="aantal">Aantal beschikbare kamers</label>
+                    <input type="number" id="aantal" name="aantal" min="0" value="<?php echo htmlspecialchars($aantal); ?>" required>
                 </div>
 
                 <div class="form-group">
@@ -123,12 +132,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="form-group">
                     <label for="afbeelding">Kies afbeelding</label>
-                  <input type="file" id="afbeelding" name="afbeelding" accept="image/*">
+                    <input type="file" id="afbeelding" name="afbeelding" accept="image/*">
                     
                     <?php if ($is_edit && !empty($afbeelding)): ?>
-                        <p>
-                            Huidige afbeelding<?php echo htmlspecialchars($afbeelding); ?>
-                        </p>
+                        <p>Huidige afbeelding: <?php echo htmlspecialchars($afbeelding); ?></p>
                     <?php endif; ?>
                 </div>
 
