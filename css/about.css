@@ -242,4 +242,33 @@ footer a:hover {
         margin-bottom: 8px;
     }
 
+    .main-about {
+        width: 100%;
+        max-width: 100%;
+        padding: 5% 15px 30px 15px;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+    .about {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    } 
+
+    .about-two {
+        flex-direction: column;
+        padding: 0;
+        margin-top: 15px;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .about-verhaal,
+    .about-waarden,
+    .about-team {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

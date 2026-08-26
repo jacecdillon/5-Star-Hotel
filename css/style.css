@@ -623,16 +623,14 @@ footer a:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
     transition: transform 0.3s, box-shadow 0.3s;
-}
+    }
 
-.home-info {
+    .home-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #faf8f5;
     gap: 30px;     
     padding: 40px 20px;
-}
-
-
+    }
 }
