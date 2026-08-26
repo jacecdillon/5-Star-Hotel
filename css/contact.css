@@ -230,3 +230,41 @@ footer h4 {
 footer a:hover {
     color: #B5925C;
 }
+
+/* Mobile view aanpassingen */
+
+@media screen and (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 12px 15px;
+        font-size: 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-info {
+        max-width: 100%;
+    }
+
+    footer h4 {
+        margin-bottom: 8px;
+    }
+
+}

@@ -1,3 +1,5 @@
+/* Main body */
+
 body {
     display: flex;
     flex-direction: column;
@@ -15,6 +17,9 @@ html, body {
     overflow-x: hidden;
 }
 
+
+/* Navbar */
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -30,19 +35,6 @@ html, body {
     font-size: 18px;
 }
 
-.boekknop {
-    background-color: #B5925C;
-    border-radius: 5px;
-    padding: 10px;
-    text-decoration: none;
-    color: white !important;
-    transition: background-color 0.3s ease;
-}
-
-.boekknop:hover {
-    background-color: #967543;
-    color: white;
-}
 .nav-links {
     display: flex;
     flex-direction: row;
@@ -62,6 +54,24 @@ html, body {
     color: #B5925C;
 }
 
+/* Boekknop */
+
+.boekknop {
+    background-color: #B5925C;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: white !important;
+    transition: background-color 0.3s ease;
+}
+
+.boekknop:hover {
+    background-color: #967543;
+    color: white;
+}
+
+/* Navbar foto */
+
 .logo {
     display: flex;
     align-items: center;
@@ -75,9 +85,13 @@ html, body {
     object-fit: contain;
 }
 
+/* Error bericht */
+
 .error-box {
     color: #C80815;
 }
+
+/* Footer */
 
 footer {
     display: flex;
@@ -132,6 +146,8 @@ footer a:hover {
     color: #B5925C;
 }
 
+/* Index pagina */
+
 .home-info {
     display: flex;
     flex-direction: row;
@@ -142,26 +158,39 @@ footer a:hover {
     padding-bottom: 3vh;
 }
 
-.info-home {
-    display: flex;
-    flex-direction: column;
-    width: 390px;
-    min-height: 560px;
-    height: auto;
-    margin: 0.9%;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
 .home-welkom {
     text-align: center;
     border: solid 1px rainbow;
     border-radius: 5px;
     color: #FFFFFF;
     padding: 1%;
+}
+
+.main-home {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 7%;
+    height: 100%;
+    padding-bottom: 10vh;
+}
+
+.info-home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 560px;
+    height: auto;
+    margin: 0.9%;
+    padding-bottom: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .infoknop {
@@ -181,14 +210,6 @@ footer a:hover {
     color: white;
 }
 
-.info-home img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: none;
-    display: block;
-}
-
 .info-home div {
     width: 100%;
     height: 180px;
@@ -198,27 +219,17 @@ footer a:hover {
     margin-bottom: 15px;
 }
 
-.main-home {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    padding: 7%;
-    height: 100%;
-    padding-bottom: 10vh;
-}
 
 .info-text {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: auto;
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
+    gap: 15px;
 }
 
 .info-home div:first-child {
@@ -230,6 +241,18 @@ footer a:hover {
     border-top-right-radius: 10px;
     margin-bottom: 0;
 }
+
+
+.info-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    display: block;
+}
+
+
+/* Restaurant pagina */
 
 .main-restaurant {
     display: flex;
@@ -266,49 +289,27 @@ footer a:hover {
     color: #50404d;
 }
 
-
-.info-home {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+.info-text .gerecht-titel {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 12px 0 2px 0;
+    padding-left: 8px;
+    line-height: 1.2;
 }
 
-
-.info-home div:first-child {
-    width: 100%;
-    height: 220px;
-    flex-shrink: 0;
-}
-
-.info-home img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-
-.info-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    gap: 15px;
+.info-text h1 + .gerecht-titel {
+    margin-top: 15px;
 }
 
 .info-text p {
-    font-size: large;
+    margin: 0 0 5px 0;
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.1;
 }
+
+/* Kamers admin form */
 
 .admin-form-container {
     max-width: 550px;
@@ -468,26 +469,6 @@ footer a:hover {
     resize: none;
 }
 
-.info-text .gerecht-titel {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin: 12px 0 2px 0;
-    padding-left: 8px;
-    line-height: 1.2;
-}
-
-.info-text h1 + .gerecht-titel {
-    margin-top: 15px;
-}
-
-.info-text p {
-    margin: 0 0 5px 0;
-    font-size: 0.95rem;
-    color: #555555;
-    line-height: 1.1;
-}
-
 .page-title {
     text-align: center;
     margin: 40px 0 20px 0;
@@ -562,4 +543,42 @@ footer a:hover {
     text-align: center;
     margin-bottom: 30px;
     color:white;
+}
+
+/* Mobile view */
+
+@media screen and (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 12px 15px;
+        font-size: 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-info {
+        max-width: 100%;
+    }
+
+    footer h4 {
+        margin-bottom: 8px;
+    }
+
 }

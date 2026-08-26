@@ -4,11 +4,10 @@
 </div>
 <div class="nav-links">
 <a href="index.php">Home</a>
-<a href="rooms.php">Kamers</a>
 <a href="restaurant.php">Restaurant</a>
 <a href="about.php">Over Ons</a>
 <a href="contact.php">Contact</a>
-<a class="boekknop" href="contact.php">Boek Nu</a>
+<a class="boekknop" href="rooms.php">Boek Nu</a>
 </div>
 <div class="nav-rechts">
     <a href="login.php">Inloggen</a>

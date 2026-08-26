@@ -1,7 +1,6 @@
 body {
     display: flex;
     flex-direction: column;
-    margin: auto;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../img/achtergrond.jpg");
     background-size: cover;
     font-family: 'Comic Neue', Arial Narrow, Arial, sans-serif;
@@ -30,19 +29,6 @@ html, body {
     font-size: 18px;
 }
 
-.boekknop {
-    background-color: #B5925C;
-    border-radius: 5px;
-    padding: 10px;
-    text-decoration: none;
-    color: white !important;
-    transition: background-color 0.3s ease;
-}
-
-.boekknop:hover {
-    background-color: #967543;
-    color: white;
-}
 .nav-links {
     display: flex;
     flex-direction: row;
@@ -75,86 +61,81 @@ html, body {
     object-fit: contain;
 }
 
-.error-box {
-    color: #C80815;
-}
-
-.main-register {
+.booking-container {
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding: 2%;
-    height: 100%;
-    padding-bottom: 7vh;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-.register-page {
-    display: flex;
-    align-items: center;
+.booking-details, .booking-form-wrapper {
+    flex: 1;
+    min-width: 300px;
 }
 
-.register-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    width: 400px;
-    justify-content: center;
-    padding: 5%;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-    transition: transform 0.3s, box-shadow 0.3s;
-    font-weight: bold;
-}
-
-.register-form p {
-    font-weight: 300;
-    text-align: center;
-}
-
-.register-email, .register-pass {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bold;
-    padding-bottom: 1%;
-}
-
-.register-email input, .register-pass input {
-    border: 1px solid gray;
-    padding-left: 10px;
-    border-radius: 25px;
-    height: 25px;
+.booking-details img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 6px;
     margin-bottom: 15px;
-    width: 200px;
 }
 
-.password-hints {
-    color: gray;
-    font-size: 14px;
+.booking-price {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
 }
 
-.register-submit {
-    text-align: center;
-    background-color: #B5925C;
-    color: #FFFFFF;
-    font-weight: 600;
+.booking-form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.booking-form input {
     padding: 10px;
-    border: none;
-    margin-bottom: 10px;
-    width: 25%;
-    height: 100%;
-    border-radius: 5px;
-    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
 }
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.alert {
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+.alert-success { background-color: #d4edda; color: #155724; }
+.alert-error { background-color: #f8d7da; color: #721c24; }
 
 footer {
     display: flex;
     flex-direction: column;
     padding: 0.5%;
     align-items: center;
+    margin-top: auto;
     border-top: solid 1px black;
     background-color: #50404d;
     bottom: 0;
@@ -201,6 +182,29 @@ footer h4 {
 
 footer a:hover {
     color: #B5925C;
+}
+
+.main-book {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    padding: 2%;
+    height: 100%;
+    padding-bottom: 16.9vh;
+}
+
+.boekknop {
+    background-color: #B5925C;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+    color: white !important;
+    transition: background-color 0.3s ease;
+}
+
+.boekknop:hover {
+    background-color: #967543;
+    color: white;
 }
 
 /* Mobile view aanpassingen */
