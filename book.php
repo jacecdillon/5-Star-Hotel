@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'db.php';
+// require_once 'mail.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     header("Location: rooms.php");
@@ -52,6 +53,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':check_in' => $check_in,
             ':check_uit'=> $check_uit
         ]);
+
+        /* $mailVerzonden = stuurBevestigingsmail(
+            $email,
+            $naam,
+            $kamer['titel'],
+            $check_in,
+            $check_uit,
+            $kamer['prijs']
+        );
+        */
+        
         $updateStmt = $db->prepare("UPDATE kamers SET aantal = aantal - 1 WHERE id = :id AND aantal > 0");
         $updateStmt->execute([':id' => $kamer_id]);
 
