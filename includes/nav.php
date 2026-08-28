@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/roles.php'; ?>
 <nav class="navbar">
 <div class="nav-img">
 <img src="img/logo.png" alt="logo" class="logo">
@@ -10,6 +11,13 @@
 <a class="boekknop" href="rooms.php">Boek Nu</a>
 </div>
 <div class="nav-rechts">
-    <a href="login.php">Inloggen</a>
+    <?php if (has_role('admin')): ?>
+            <a href="event_add.php">Events toevoegen</a>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <a class="nav-cta" href="logout.php">Uitloggen</a>
+    <?php else: ?>
+        <a href="login.php">Inloggen</a>
+    <?php endif; ?>
 </div>
 </nav>
