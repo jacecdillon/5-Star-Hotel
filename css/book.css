@@ -41,7 +41,11 @@ html, body {
 
 .nav-rechts {
     display: flex;
-    gap: 25px;
+    flex-direction: row;
+    max-width: 250px;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .navbar a {
