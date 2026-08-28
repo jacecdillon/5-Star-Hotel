@@ -13,8 +13,8 @@ function maakMailer(): PHPMailer {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'bakulakun6969@gmail.com';
-    $mail->Password   = 'kpqxzqwfaukmaitp';
+    $mail->Username   = 'x@gmail.com';
+    $mail->Password   = 'x';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
     $mail->CharSet    = 'UTF-8';
@@ -33,7 +33,7 @@ function stuurBevestigingsmail(
     try {
         $mail = maakMailer();
 
-        $mail->setFrom('bakulakun6969@gmail.com', 'Hotel De Zonne Vallei');
+        $mail->setFrom('x@gmail.com', 'Hotel De Zonne Vallei');
         $mail->addAddress($email, $naam);
 
         $mail->isHTML(true);
@@ -85,8 +85,8 @@ function stuurContactmail(
     try {
         $mail = maakMailer();
 
-        $mail->setFrom('bakulakun6969@gmail.com', 'Contactformulier - Hotel De Zonne Vallei');
-        $mail->addAddress('bakulakun6969@gmail.com', 'Hotel De Zonne Vallei');
+        $mail->setFrom('x@gmail.com', 'Contactformulier - Hotel De Zonne Vallei');
+        $mail->addAddress('x@gmail.com', 'Hotel De Zonne Vallei');
         $mail->addReplyTo($email, $voornaam . ' ' . $achternaam);
 
         $mail->isHTML(true);
