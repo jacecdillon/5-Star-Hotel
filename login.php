@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     session_regenerate_id(true);
                     $_SESSION['user_id'] = $row['id'];
                     $_SESSION['user_name'] = trim($row['firstname'] . ' ' . $row['lastname']);
+                    $_SESSION['rol'] = $row['is_admin'] ? 'admin' : 'client';
                     header('Location: index.php');
                     exit;
                 }

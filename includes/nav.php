@@ -12,7 +12,7 @@
 </div>
 <div class="nav-rechts">
     <?php if (has_role('admin')): ?>
-            <a href="event_add.php">Events toevoegen</a>
+            <a href="admin-kamers.php">Kamer Beheer</a>
     <?php endif; ?>
     <?php if (isset($_SESSION['user_id'])): ?>
         <a class="nav-cta" href="logout.php">Uitloggen</a>
