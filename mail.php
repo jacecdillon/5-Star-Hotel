@@ -7,6 +7,7 @@ require_once __DIR__ . '/PHPMailer-master/src/Exception.php';
 require_once __DIR__ . '/PHPMailer-master/src/PHPMailer.php';
 require_once __DIR__ . '/PHPMailer-master/src/SMTP.php';
 
+// Contactmail als iemand boekt
 function stuurBevestigingsmail(
     string $email,
     string $naam,
@@ -67,4 +68,57 @@ function stuurBevestigingsmail(
         error_log("PHPMailer Fout: " . $mail->ErrorInfo);
         return false;
     }
+
+
+    // Contactmail voor contactformulier
+    function stuurContactmail(
+    string $voornaam,
+    string $achternaam,
+    string $email,
+    string $onderwerp,
+    string $bericht
+): bool {
+    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'bakulakun6969@gmail.com'; 
+        $mail->Password   = 'kpqxzqwfaukmaitp'; 
+        $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        $mail->setFrom('bakulakun6969@gmail.com', 'Contactformulier - Hotel De Zonne Vallei');
+        $mail->addAddress('bakulakun6969@gmail.com', 'Hotel De Zonne Vallei');
+        $mail->addReplyTo($email, $voornaam . ' ' . $achternaam);
+
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
+        $mail->Subject = 'Nieuw contactbericht: ' . $onderwerp;
+
+        $mail->Body = '
+        <h2>Nieuw bericht via het contactformulier</h2>
+        <p><strong>Naam:</strong> ' . htmlspecialchars($voornaam) . ' ' . htmlspecialchars($achternaam) . '</p>
+        <p><strong>E-mailadres:</strong> ' . htmlspecialchars($email) . '</p>
+        <p><strong>Onderwerp:</strong> ' . htmlspecialchars($onderwerp) . '</p>
+        <hr>
+        <p><strong>Bericht:</strong></p>
+        <p>' . nl2br(htmlspecialchars($bericht)) . '</p>
+        ';
+
+        $mail->AltBody = 
+            "Nieuw contactbericht\n\n" .
+            "Naam: $voornaam $achternaam\n" .
+            "E-mail: $email\n" .
+            "Onderwerp: $onderwerp\n\n" .
+            "Bericht:\n$bericht";
+
+        $mail->send();
+        return true;
+    } catch (\PHPMailer\PHPMailer\Exception $e) {
+        error_log("PHPMailer Fout: " . $mail->ErrorInfo);
+        return false;
+    }
+}
 }
