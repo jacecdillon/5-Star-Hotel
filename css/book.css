@@ -42,9 +42,19 @@ html, body {
 .nav-rechts {
     display: flex;
     flex-direction: row;
-    max-width: 250px;
-    width: 100%;
-    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-admin {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+}
+
+.nav-admin {
+    display: flex;
     align-items: center;
 }
 

@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Voornaam mag alleen letters bevatten (max. 50 tekens).";
     } elseif (!preg_match('/^[A-Za-zÀ-ÖØ-öø-ÿ\s\-]{1,50}$/', $achternaam)) {
         $error = "Achternaam mag alleen letters bevatten (max. 50 tekens).";
-
     } elseif (!preg_match('/^(?=.*[A-Za-z])(?=.*\d).{8,72}$/', $wachtwoord)) {
         $error = "Wachtwoord moet minimaal 8 tekens bevatten met minstens één letter en één cijfer.";
     } elseif ($wachtwoord !== $confirm) {
