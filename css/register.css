@@ -30,6 +30,11 @@ html, body {
     font-size: 18px;
 }
 
+.nav-rechts {
+    display: flex;
+    gap: 25px;
+}
+
 .boekknop {
     background-color: #B5925C;
     border-radius: 5px;

@@ -417,7 +417,6 @@ footer a:hover {
 }
 
 .main-content {
-    flex: 1;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -637,5 +636,64 @@ footer a:hover {
     background-color: #faf8f5;
     gap: 30px;     
     padding: 40px 20px;
+    }
+
+    /* Admin-kamers */
+
+    .main-content {
+        display: flex;
+        padding-right: 80px;
+    }
+    .admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    }
+
+    .admin-container td {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .admin-container th {
+        display: none;
+    }
+
+    .admin-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    margin: 0.9%;
+    padding-bottom: 10px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .admin-table-img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Kamers */
+
+    .main-content {
+        display: flex;
+        padding-left: 57px;
+    }
+
+    .page-title {
+        display: flex;
+        justify-content: center;
+        padding-left: 10px;
     }
 }
