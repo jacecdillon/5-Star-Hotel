@@ -51,7 +51,7 @@ require 'db.php';
                 <img src="./img/alkmaar.jpg">
             </div>
             <div class="info-text">
-                <h2>Ontdek de Omgeving</h2>
+                <h2>Over ons</h2>
                 <p>Hotel De Zonne Vallei ligt in het bruisende hart van Alkmaar, een stad die rijk is aan geschiedenis en cultuur. Verken de pittoreske straatjes, bewonder de eeuwenoude architectuur en bezoek de wereldberoemde kaasmarkt. Of u nu winkelt in de boetiekjes, geniet van een drankje op een van de vele terrassen of een ontspannen wandeling maakt langs de grachten, Alkmaar biedt voor ieder wat wils. Ontdek de schoonheid en charme van deze historische stad tijdens uw verblijf in ons hotel.</p>
                 <a class="infoknop" href="about.php">Meer Over Ons</a>
             </div>

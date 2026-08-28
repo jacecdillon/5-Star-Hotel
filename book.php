@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $succesmelding = "Bedankt " . htmlspecialchars($naam) . "! Je boeking voor de " . htmlspecialchars($kamer['titel']) . " is ontvangen.";
     }
+
 }
 ?>
 
