@@ -454,6 +454,10 @@ footer a:hover {
     border-radius: 8px;
 }
 
+.admin-container a {
+    text-decoration: none;
+}
+
 .admin-table {
     width: 100%;
     border-collapse: collapse;

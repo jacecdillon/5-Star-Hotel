@@ -41,8 +41,7 @@ function require_login($redirect_url = 'login.php')
 function get_role_display()
 {
     $role_display = [
-        'leerling' => 'Leerling',
-        'student' => 'Student',
+        'client' => 'Client',
         'admin' => 'Admin',
     ];
 

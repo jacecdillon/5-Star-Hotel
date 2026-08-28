@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
 <main class="main-register">
-    <div class="register-container auth-page-container">
+    <div class="register-container">
         <div class="auth-card">
             <?php if (!empty($error)): ?>
                 <div class="error-box"><?= htmlspecialchars($error) ?></div>
@@ -87,39 +87,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     <div class="register-email">
                         <h4 for="voornaam">Voornaam</h4>
-                        <input id="voornaam" class="auth-input" type="text"
-                            name="voornaam" maxlength="50" required
+                        <input id="voornaam"  type="text" name="voornaam" maxlength="50" required
                             value="<?= htmlspecialchars($_POST['voornaam'] ?? '') ?>">
                     </div>
 
                     <div class="register-email">
                         <h4 for="achternaam">Achternaam</h4>
-                        <input id="achternaam" class="auth-input" type="text"
-                            name="achternaam" maxlength="50" required
+                        <input id="achternaam" type="text" name="achternaam" maxlength="50" required
                             value="<?= htmlspecialchars($_POST['achternaam'] ?? '') ?>">
                     </div>
 
                     <div class="register-email">
                         <h4 for="email">E-mailadres:</h4>
-                        <input id="email" class="auth-input" type="email"
-                            name="email" maxlength="50" required
+                        <input id="email" type="email" name="email" maxlength="50" required
                             value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
                     </div>
 
                     <div class="register-pass">
                         <h4 for="wachtwoord">Wachtwoord:</h4>
-                        <input id="wachtwoord" class="auth-input" type="password"
-                            name="wachtwoord" maxlength="72" required>
+                        <input id="wachtwoord" type="password" name="wachtwoord" maxlength="72" required>
                         <div class="password-hints">
-                            <small class="password-req">• Minimaal 8 tekens</small>
-                            <small class="password-req">• Minimaal 1 cijfer</small>
+                            <small>• Minimaal 8 tekens</small>
+                            <small>• Minimaal 1 cijfer</small>
                         </div>
                     </div>
 
                     <div class="register-pass">
                         <h4 for="confirm_wachtwoord">Bevestig wachtwoord:</h4>
-                        <input id="confirm_wachtwoord" class="auth-input" type="password"
-                            name="confirm_wachtwoord" maxlength="72" required>
+                        <input id="confirm_wachtwoord" type="password" name="confirm_wachtwoord" maxlength="72" required>
                     </div>
 
                     <button type="submit" class="register-submit">Registreren</button>
