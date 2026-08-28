@@ -48,7 +48,11 @@ html, body {
 
 .nav-rechts {
     display: flex;
-    gap: 25px;
+    flex-direction: row;
+    max-width: 250px;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .navbar a {
@@ -388,7 +392,7 @@ footer a:hover {
     padding: 12px;
     border: none;
     border-radius: 8px;
-    background-color: #007BFF;
+    background-color: #B5925C;
     color: #FFFFFF;
     font-weight: 600;
     cursor: pointer;
@@ -396,7 +400,7 @@ footer a:hover {
 }
 
 .admin-submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #967543;
 }
 
 .admin-cancel-btn {
@@ -460,7 +464,7 @@ footer a:hover {
 .admin-btn-add {
     display: inline-block;
     padding: 8px 16px;
-    background-color: #28a745;
+    background-color: #B5925C;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
