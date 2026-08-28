@@ -112,7 +112,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="form-group">
                     <label for="soort">Kamertype / Soort</label>
-                    <input type="text" id="soort" name="soort" value="<?php echo htmlspecialchars($soort); ?>" required>
+                    <select id="soort" name="soort" value="<?php echo htmlspecialchars($soort); ?>" required>
+                        <option value="Comfort Kamer">Comfort Kamer</option>
+                        <option value="Deluxe Kamer">Deluxe Kamer</option>
+                        <option value="Junior Suite">Junior Suite</option>
+                        <option value="Familie Suite">Familie Suite</option>
+                        <option value="Bruidssuite">Bruidssuite</option>
+                    </select>
                 </div>
 
                 <div class="form-group">

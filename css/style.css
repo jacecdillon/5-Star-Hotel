@@ -683,4 +683,17 @@ footer a:hover {
         width: 100%;
         height: 100%;
     }
+
+    /* Kamers */
+
+    .main-content {
+        display: flex;
+        padding-left: 57px;
+    }
+
+    .page-title {
+        display: flex;
+        justify-content: center;
+        padding-left: 10px;
+    }
 }
