@@ -7,6 +7,21 @@ require_once __DIR__ . '/PHPMailer-master/src/Exception.php';
 require_once __DIR__ . '/PHPMailer-master/src/PHPMailer.php';
 require_once __DIR__ . '/PHPMailer-master/src/SMTP.php';
 
+function maakMailer(): PHPMailer {
+    $mail = new PHPMailer(true);
+
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'bakulakun6969@gmail.com';
+    $mail->Password   = 'kpqxzqwfaukmaitp';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
+    $mail->CharSet    = 'UTF-8';
+
+    return $mail;
+}
+
 function stuurBevestigingsmail(
     string $email,
     string $naam,
@@ -15,22 +30,13 @@ function stuurBevestigingsmail(
     string $check_uit,
     float $prijs
 ): bool {
-    $mail = new PHPMailer(true);
-
     try {
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'bakulakun6969@gmail.com'; 
-        $mail->Password   = 'kpqxzqwfaukmaitp';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail = maakMailer();
 
         $mail->setFrom('bakulakun6969@gmail.com', 'Hotel De Zonne Vallei');
         $mail->addAddress($email, $naam);
 
         $mail->isHTML(true);
-        $mail->CharSet = 'UTF-8';
         $mail->Subject = 'Bevestiging van je boeking - Hotel De Zonne Vallei';
 
         $mail->Body = '
@@ -64,7 +70,7 @@ function stuurBevestigingsmail(
         $mail->send();
         return true;
     } catch (Exception $e) {
-        error_log("PHPMailer Fout: " . $mail->ErrorInfo);
+        error_log("PHPMailer Fout: " . $e->getMessage());
         return false;
     }
 }
@@ -76,24 +82,15 @@ function stuurContactmail(
     string $onderwerp,
     string $bericht
 ): bool {
-    $mail = new PHPMailer(true);
-
     try {
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'bakulakun6969@gmail.com'; 
-        $mail->Password   = 'kpqxzqwfaukmaitp';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail = maakMailer();
 
         $mail->setFrom('bakulakun6969@gmail.com', 'Contactformulier - Hotel De Zonne Vallei');
         $mail->addAddress('bakulakun6969@gmail.com', 'Hotel De Zonne Vallei');
         $mail->addReplyTo($email, $voornaam . ' ' . $achternaam);
 
         $mail->isHTML(true);
-        $mail->CharSet = 'UTF-8';
-        $mail->Subject = 'Nieuw contactbericht: ' . $onderwerp;
+        $mail->Subject = 'Nieuw bericht ' . $onderwerp;
 
         $mail->Body = '
         <h2>Nieuw bericht via het contactformulier</h2>
@@ -115,7 +112,7 @@ function stuurContactmail(
         $mail->send();
         return true;
     } catch (Exception $e) {
-        error_log("PHPMailer Fout: " . $mail->ErrorInfo);
+        error_log("PHPMailer Fout: " . $e->getMessage());
         return false;
     }
 }
