@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $newUserId = $db->lastInsertId();
                 $_SESSION['user_id'] = $newUserId;
                 $_SESSION['user_name'] = trim($voornaam . ' ' . $achternaam);
-                $_SESSION['rol'] = 'leerling';
+                $_SESSION['rol'] = 'client';
 
                 header('Location: index.php');
                 exit;
