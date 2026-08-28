@@ -7,7 +7,6 @@ require_once __DIR__ . '/PHPMailer-master/src/Exception.php';
 require_once __DIR__ . '/PHPMailer-master/src/PHPMailer.php';
 require_once __DIR__ . '/PHPMailer-master/src/SMTP.php';
 
-// Contactmail als iemand boekt
 function stuurBevestigingsmail(
     string $email,
     string $naam,
@@ -68,25 +67,24 @@ function stuurBevestigingsmail(
         error_log("PHPMailer Fout: " . $mail->ErrorInfo);
         return false;
     }
+}
 
-
-    // Contactmail voor contactformulier
-    function stuurContactmail(
+function stuurContactmail(
     string $voornaam,
     string $achternaam,
     string $email,
     string $onderwerp,
     string $bericht
 ): bool {
-    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+    $mail = new PHPMailer(true);
 
     try {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'bakulakun6969@gmail.com'; 
-        $mail->Password   = 'kpqxzqwfaukmaitp'; 
-        $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Password   = 'kpqxzqwfaukmaitp';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
         $mail->setFrom('bakulakun6969@gmail.com', 'Contactformulier - Hotel De Zonne Vallei');
@@ -116,9 +114,8 @@ function stuurBevestigingsmail(
 
         $mail->send();
         return true;
-    } catch (\PHPMailer\PHPMailer\Exception $e) {
+    } catch (Exception $e) {
         error_log("PHPMailer Fout: " . $mail->ErrorInfo);
         return false;
     }
-}
 }

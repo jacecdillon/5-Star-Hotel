@@ -34,7 +34,6 @@ $kamers = $query->fetchAll(PDO::FETCH_ASSOC);
                         <h2><?php echo htmlspecialchars($kamer['titel']); ?></h2>
                         <p class="kamer-beschrijving"><?php echo htmlspecialchars($kamer['beschrijving']); ?></p>
 
-                        <!-- Voorraad indicator -->
                         <div class="beschikbaarheid-status">
                             <?php if ($kamer['aantal'] > 0): ?>
                                 <span class="badge in-stock">Nog <?php echo $kamer['aantal']; ?> beschikbaar</span>

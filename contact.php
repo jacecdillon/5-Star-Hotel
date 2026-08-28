@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $domain = substr(strrchr($email, "@"), 1);
 
     if (empty($voornaam) || empty($achternaam) || empty($email) || empty($onderwerp) || empty($bericht)) {
-        $foutmelding = "Vul alstublieft alle velden in.";
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $foutmelding = "Vul een geldig e-mailadres in.";
     } else if (!checkdnsrr($domain, "MX")) {
@@ -34,10 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($dbOpslag) {
             $mailVerzonden = stuurContactmail($voornaam, $achternaam, $email, $onderwerp, $bericht);
 
+            $safeNaam = htmlspecialchars($voornaam);
             if ($mailVerzonden) {
-                $succesmelding = "Bedankt $voornaam! Je bericht is opgeslagen en succesvol verzonden.";
+                $succesmelding = "Bedankt $safeNaam! Je bericht is opgeslagen en succesvol verzonden.";
             } else {
-                $succesmelding = "Bedankt $voornaam! Je bericht is opgeslagen in ons systeem. (De bevestigingsmail kon helaas niet worden verzonden).";
+                $succesmelding = "Bedankt $safeNaam! Je bericht is opgeslagen in ons systeem. (De bevestigingsmail kon helaas niet worden verzonden).";
             }
         } else {
             $foutmelding = "Er is iets misgegaan bij het opslaan van je bericht in de database. Probeer het later opnieuw.";
@@ -46,9 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,33 +58,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <main class="main-contact">
-        <form class="contact-page"   method="post">
+        <form class="contact-page" method="post">
             <div class="contact-form">
                 <h2>Contactformulier</h2>
+
+                <?php if (!empty($foutmelding)): ?>
+                    <p style="color: red;"><?= $foutmelding ?></p>
+                <?php endif; ?>
+                <?php if (!empty($succesmelding)): ?>
+                    <p style="color: green;"><?= $succesmelding ?></p>
+                <?php endif; ?>
+
                 <div class="contact-name">  
                     <div>
                         <p>Naam</p>
-                        <input type="text" placeholder="Naam..."> 
+                        <input type="text" name="voornaam" placeholder="Naam..." value="<?= htmlspecialchars($_POST['voornaam'] ?? '') ?>"> 
                     </div>
                     <div>
                         <p>Achternaam</p>
-                        <input type="text" placeholder="Achternaam...">
+                        <input type="text" name="achternaam" placeholder="Achternaam..." value="<?= htmlspecialchars($_POST['achternaam'] ?? '') ?>">
                     </div>
                 </div>
 
                 <div class="contact-email">
                     <div>
                         <p>Email</p>
-                        <input type="email" placeholder="Email...">
+                        <input type="email" name="email" placeholder="Email..." value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
                     </div>
                     <div>
                         <p>Onderwerp</p>
-                        <input type="text" placeholder="Onderwerp...">
+                        <input type="text" name="onderwerp" placeholder="Onderwerp..." value="<?= htmlspecialchars($_POST['onderwerp'] ?? '') ?>">
                     </div>
                 </div>
-                    <p>Bericht</p>
-                    <textarea placeholder="Bericht..."></textarea>
-                    <input type="submit" value="Submit" class="contact-submit">
+                <p>Bericht</p>
+                <textarea name="bericht" placeholder="Bericht..."><?= htmlspecialchars($_POST['bericht'] ?? '') ?></textarea>
+                <input type="submit" value="Submit" class="contact-submit">
             </div>
         </form>
         <div class="contact-info">
@@ -95,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h3>Locatie:</h3>
                 <h4>Straatnaam 123, 1234 AB Stad</h4>
                 <h3>Nummer:</h3>
-                <h4>Tel: 06-12345678</h4>
+                <h4>Tel: +31 0612345678</h4>
             </div>
         </div>
     </main>
