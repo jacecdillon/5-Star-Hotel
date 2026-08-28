@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php endif; ?>
 
                     <?php if ($kamer['aantal'] > 0): ?>
-                        <form method="POST" action="" class="booking-form">
+                        <form method="POST" class="booking-form">
                             <div class="form-group">
                                 <label for="naam">Volledige naam</label>
                                 <input type="text" id="naam" name="naam" required placeholder="Ben Dover" value="<?php echo isset($_POST['naam']) ? htmlspecialchars($_POST['naam']) : ''; ?>">

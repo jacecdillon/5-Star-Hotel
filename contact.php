@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
 <main class="main-contact">
-        <form class="contact-page" action="contact.php" method="post">
+        <form class="contact-page"   method="post">
             <div class="contact-form">
                 <h2>Contactformulier</h2>
                 <div class="contact-name">  
