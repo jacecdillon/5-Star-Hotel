@@ -46,9 +46,9 @@ $kamers = $query->fetchAll(PDO::FETCH_ASSOC);
                             <span class="prijs">€<?php echo number_format($kamer['prijs'], 2, ',', '.'); ?> <span>/ nacht</span></span>
                             
                             <?php if ($kamer['aantal'] > 0): ?>
-                                <a href="book.php?id=<?php echo $kamer['id']; ?>" class="boek-btn">Boek nu</a>
+                                <a href="book.php?id=<?php echo $kamer['id']; ?>" class="boekknop">Boek nu</a>
                             <?php else: ?>
-                                <button class="boek-btn disabled" disabled>Volgeboekt</button>
+                                <button class="boekknop-disabled" disabled>Volgeboekt</button>
                             <?php endif; ?>
                         </div>
                     </div>
